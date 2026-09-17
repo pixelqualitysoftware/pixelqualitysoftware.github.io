@@ -1,0 +1,13 @@
+<article class="project-card">
+  <div class="project-copy">
+    <div class="project-topline">
+      <h3>{{ include.project.title | escape }}</h3>
+      {% if include.project.status %}<span class="tag">{{ include.project.status | escape }}</span>{% endif %}
+    </div>
+    <p class="project-lead">{{ include.project.summary | escape }}</p>
+    <div class="card-description">{{ include.project.content | markdownify }}</div>
+    {% if include.project.repository %}
+    <a class="card-link" href="{{ include.project.repository | escape }}">View on GitHub</a>
+    {% endif %}
+  </div>
+</article>

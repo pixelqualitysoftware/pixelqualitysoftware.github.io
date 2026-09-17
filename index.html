@@ -1,113 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pixel Quality Software</title>
+---
+layout: default
+title: Pixel Quality Software
+seo:
+  type: Organization
+---
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-content">
+        <h1 id="hero-title">Languages, games, and software<br class="hero-break"> by Pixel Quality</h1>
+        <p class="hero-description">An independent team developing Kyogas and PixelMine</p>
+        <img class="hero-image" src="{{ 'assets/images/kyogas-placeholder.svg' | relative_url }}" width="1200" height="540" alt="Placeholder for a Kyogas representation image">
 
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-
-<h1>
-    Pixel Quality Software
-</h1>
-
-<p>
-    We really just make random stuff, but we have some solid ideas.
-</p>
-<hr>
-<h2>Projects</h2>
-
-<section>
-		<h3>Kyogas</h3>
-		
-		    <p>As of right now, our main project is  <a href="https://github.com/pixelqualitysoftware/kyogas"> Kyogas</a></p>
-		
-		    <h4>What is Kyogas?</h4>
-		
-		<blockquote>
-		    Kyogas is a minimalistic markup language with static typing<br>
-		    that I made because I didn't have anything better to do.<br>
-		    And because JSON is too verbose and I despise YAML using indentation for everything. <!--<br>-->
-		</blockquote>
-		
-		<p> - <a href="https://github.com/werSquared">Wernasho</a>'s description of Kyogas </p>
-		
-		<br>
-		<p>
-		    Here is an example of Kyogas's syntax:
-		</p>
-		
-		<div id="kyogas-example" class="h">
-		    <pre style="padding:0.7rem;"><code>
-str name: player
-byte lvl: 5
-uint gold: 358
-uint xp: 44
-byte hp: 100
-byte max-hp: 100
-byte defense: 4
-byte attack: 45
-		    </code></pre>
-		</div>
-		<hr>
-		<h3>PixelMine</h3>
-		
-<p> PixelMine is our newest project, and it's still in a very early stage.</p>
-
-<p>As of now, PixelMine is planned to be a 2D mining game written in C#. </p>
-
-<p>You can see the repo <a href="https://github.com/pixelqualitysoftware/pixelmine">here</a></p>
-<hr>
-</section>
-<h2>
-    Members
-</h2>
-		<section>
-    <p>There are three members of Pixel Quality Software.</p> <!--<br>-->
-    <p>Our roles aren't set in stone, but here's the best representation of what we do:</p><!--<br>-->
-
-    <h4>
-    <a href="https://github.com/werSquared">Wernasho</a>:
-    </h4>
-    <p>Wernasho is the creator of Pixel Quality Software and the creator of Kyogas.</p>
-				<p>Kyogas was originally his project before founding the studio.</p>
-				<p>He's also worked on another project in his old account,<a href="https://github.com/wernasho/wccm">WCCM</a></p>
-    <small>wow im boring asf -wer</small>
-    <h4>
-        <a href="https://github.com/tuxza">Tux</a>:
-    </h4>
-    <p>Tux is the newest member of Pixel Quality Software.</p> <!--<br>-->
-    <p>He, along with Wernasho, handles the bulk of code written.</p> <!--<br>-->
-
-        <!--<br>-->
-        <p>Fun fact:</p> <!--<br>-->
-        <p>Tux is currently working on a Rust port of Kyogas.</p>
-    <h4>
-        <a href="https://github.com/Centurion774477">Centurion</a>:
-    </h4>
-        <p>I (Centurion) am actually writing the website right now.</p> 
-        <p>I am the second-earliest member of Pixel Quality Software.</p>
-        <p>My main contributions are through brainstorming ideas,</p>
-        <p>refactoring code, and handling documentation.</p>
-
-        <p>I write little code for Pixel Quality;</p>
-        <p>I am usually working on my own projects.</p>
-        <hr>
-		</section>
-		<h2>Join us!</h2>
-		
-		<section>
-				<p>Hi! Wernasho here.</p>
-				<p>We've been thinking about getting a fourth member for Pixel Quality.</p>
-				<p>We'd love for anyone to join, however, we do have a few requirements: </p>
-				<ul>
-						<li>Musst be between 13/18 years of age</li>
-						<li>know C# somewhat decently</li>
-						<li>Be on a timezone close to mine (GMT-3), Centurion's (GMT-2) or Tux's (GMT-1)</li>
-				</ul>
-				<p>If you're interested, DM me on discord! <code class="h b"> @wernasho</code></p>
-				<p>or in Reddit <code class="h b"> u/wernasho</code></p>
-		</section>
-</body>
-</html>
+      </div>
+    </section>
+    <section class="projects section-pad" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading"><h2 id="projects-title">Our {projects}</h2><p>A markup language and a game.<br>Here’s what we’re working on.</p></div>
+        <div class="project-grid" id="project-cards">
+          {% assign projects = site.projects | sort_natural: 'title' %}
+          {% for project in projects %}
+            {% include project-card.html project=project %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="team section-pad" id="team" aria-labelledby="team-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="team-title">Our team</h2>
+          {% capture team_count_word %}{% include number-word.html number=site.team.size %}{% endcapture %}
+          <p>{{ team_count_word | strip | capitalize }} {% if site.team.size == 1 %}member{% else %}members{% endif %}.<br>Different contributions.</p>
+        </div>
+        <div class="team-grid" id="team-cards">
+          {% assign members = site.team | sort_natural: 'name' %}
+          {% for member in members %}
+            {% include member-card.html member=member %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <section class="join section-pad" id="join" aria-labelledby="join-title"><div class="container join-grid"><div><h2 id="join-title">Join us</h2><p>We’ve been thinking about getting a fourth member. If you’re interested, send Wernasho a message.</p></div><div class="join-details"><h3>You could be a good fit if you…</h3><ul><li>Are between 13 and 18 years old</li><li>Know your way around C#</li><li>Are in a timezone close to GMT−3, GMT−2, or GMT−1</li></ul><div class="contact"><span>Say hi to Wernasho</span><p>Discord <code>@wernasho</code></p><a href="https://www.reddit.com/user/wernasho/">Reddit <span>u/wernasho</span></a></div></div></div></section>
+  </main>

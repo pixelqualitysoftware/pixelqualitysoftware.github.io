@@ -1,0 +1,21 @@
+{%- assign profile_parts = include.member.profile | split: '/' -%}
+{%- assign github_username = '' -%}
+{%- if profile_parts[2] == 'github.com' -%}
+  {%- assign github_username = profile_parts[3] | split: '?' | first | split: '#' | first -%}
+{%- endif -%}
+<article class="member">
+  <div class="member-heading">
+  <div class="member-avatar" aria-hidden="true">
+    <span>{{ include.member.name | slice: 0 | upcase | escape }}</span>
+    {% if github_username != empty %}<img src="https://github.com/{{ github_username | uri_escape }}.png?size=128" width="64" height="64" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">{% endif %}
+  </div>
+  <div class="member-identity">
+  <h3>{% if include.member.profile %}<a href="{{ include.member.profile | escape }}">{{ include.member.name | escape }}</a>{% else %}{{ include.member.name | escape }}{% endif %}</h3>
+  <p class="member-role">{{ include.member.role | escape }}</p>
+  </div>
+  </div>
+  <div class="card-description">{{ include.member.content | markdownify }}</div>
+  {% if include.member.link_url %}
+  <a class="card-link" href="{{ include.member.link_url | escape }}">{{ include.member.link_label | default: 'View profile' | escape }}</a>
+  {% endif %}
+</article>

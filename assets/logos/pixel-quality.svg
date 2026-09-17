@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Pixel Quality</title>
+  <rect width="64" height="64" rx="8" fill="#6b57ff"/>
+  <path fill="#fff" fill-rule="evenodd" d="M12 12h32v24H24v16H12V12zm12 8v8h12v-8H24z"/>
+  <path fill="#fff" d="M44 44h8v8h-8z"/>
+</svg>
