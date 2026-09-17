@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#19191c"/>
+  <rect y="614" width="1200" height="16" fill="#6b57ff"/>
+  <g transform="translate(80 74) scale(1.5)">
+    <rect width="64" height="64" rx="8" fill="#6b57ff"/>
+    <path fill="#fff" fill-rule="evenodd" d="M12 12h32v24H24v16H12V12zm12 8v8h12v-8H24z"/>
+    <path fill="#fff" d="M44 44h8v8h-8z"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="80" y="290" fill="#fff" font-size="80" font-weight="700">Pixel Quality</text>
+    <text x="80" y="382" fill="#fff" font-size="80" font-weight="700">Software</text>
+    <text x="84" y="468" fill="#c4c4cc" font-size="30">Independent software, languages, and games.</text>
+    <text x="84" y="557" fill="#ae9fff" font-size="24">Kyogas · PixelMine</text>
+  </g>
+</svg>

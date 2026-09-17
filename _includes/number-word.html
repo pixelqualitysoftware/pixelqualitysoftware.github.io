@@ -1,0 +1,25 @@
+{%- assign number = include.number | plus: 0 -%}
+{%- assign small = 'zero,one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirteen,fourteen,fifteen,sixteen,seventeen,eighteen,nineteen' | split: ',' -%}
+{%- assign tens = 'zero,ten,twenty,thirty,forty,fifty,sixty,seventy,eighty,ninety' | split: ',' -%}
+{%- if number < 20 -%}
+  {{- small[number] -}}
+{%- elsif number < 100 -%}
+  {%- assign ten = number | divided_by: 10 -%}
+  {%- assign unit = number | modulo: 10 -%}
+  {{- tens[ten] -}}{%- if unit > 0 -%}-{{- small[unit] -}}{%- endif -%}
+{%- else -%}
+  {%- if number >= 1000000000000 -%}
+    {%- assign scale = 1000000000000 -%}{%- assign label = 'trillion' -%}
+  {%- elsif number >= 1000000000 -%}
+    {%- assign scale = 1000000000 -%}{%- assign label = 'billion' -%}
+  {%- elsif number >= 1000000 -%}
+    {%- assign scale = 1000000 -%}{%- assign label = 'million' -%}
+  {%- elsif number >= 1000 -%}
+    {%- assign scale = 1000 -%}{%- assign label = 'thousand' -%}
+  {%- else -%}
+    {%- assign scale = 100 -%}{%- assign label = 'hundred' -%}
+  {%- endif -%}
+  {%- assign quotient = number | divided_by: scale -%}
+  {%- assign remainder = number | modulo: scale -%}
+  {%- include number-word-part.html quotient=quotient remainder=remainder label=label -%}
+{%- endif -%}

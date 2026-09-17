@@ -1,0 +1,46 @@
+title: Pixel Quality Software
+description: "Pixel Quality Software: a small independent team building languages, games, and whatever comes next."
+url: "https://pixelqualitysoftware.github.io"
+baseurl: ""
+encoding: utf-8
+strict_front_matter: true
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - run.sh
+  - README.md
+  - assets/README.md
+  - assets/REFERENCE.md
+  - vendor
+  - node_modules
+  - package.json
+  - package-lock.json
+
+collections:
+  projects:
+    output: false
+  team:
+    output: false
+
+lang: en
+locale: en_US
+tagline: Independent software, languages, and games
+logo: /assets/logos/pixel-quality.svg
+social:
+  name: Pixel Quality Software
+  links:
+    - https://github.com/pixelqualitysoftware
+twitter:
+  card: summary_large_image
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+defaults:
+  - scope:
+      path: ""
+    values:
+      image:
+        path: /assets/images/social-preview.png
+        width: 1200
+        height: 630
+        alt: Pixel Quality Software — independent software, languages, and games

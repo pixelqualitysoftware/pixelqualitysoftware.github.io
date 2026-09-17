@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="540" viewBox="0 0 1200 540">
+  <rect x="1" y="1" width="1198" height="538" rx="16" fill="#14141e" stroke="#555568" stroke-width="2" stroke-dasharray="8 8"/>
+  <g fill="none" stroke="#9696ab" stroke-width="3" stroke-linejoin="round">
+    <rect x="572" y="202" width="56" height="44" rx="4"/>
+    <circle cx="611" cy="215" r="5"/>
+    <path d="m575 240 15-17 13 13 8-8 14 15"/>
+  </g>
+  <text x="600" y="290" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="30">Kyogas</text>
+  <text x="600" y="328" text-anchor="middle" fill="#a8a8bb" font-family="Arial, sans-serif" font-size="20">Image placeholder</text>
+</svg>
